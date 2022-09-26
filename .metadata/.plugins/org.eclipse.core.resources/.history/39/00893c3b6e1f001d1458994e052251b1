@@ -1,0 +1,31 @@
+package AutomationMobileProject.Appium;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.testng.annotations.Test;
+
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.options.UiAutomator2Options;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
+
+public class AppiumBasics {
+	
+	@Test
+	
+	public void AppiumTest() throws MalformedURLException {
+		//code to start server automatically
+		
+		
+		//AndroidDriver , IOSDriver 
+		// Appium code -> Appium Server -> Mobile
+		AppiumServiceBuilder service = new AppiumServiceBuilder().withAppiumJS(ne File("C://users//necaballero//AppData//Roaming//npm//node_modules//appium//build//lib//main.js"));
+		
+		UiAutomator2Options options = new UiAutomator2Options();
+		options.setDeviceName("PhonePorTest");
+		options.setApp("C:\\Users\\necaballero\\eclipse-workspace\\Appium\\src\\test\\java\\resources\\ApiDemos-debug.apk");
+		
+		AndroidDriver driver = new AndroidDriver(new URL("http://127.0.0.1:4723"),options);
+		driver.quit();
+	}
+}
